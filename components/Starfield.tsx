@@ -168,7 +168,7 @@ export default function Starfield() {
       className="fixed inset-0 pointer-events-none"
       style={{
         zIndex: 0,
-        background: "url('/nano-banana-pro-text-to-image-result (2) 2.jpg') no-repeat center center",
+        background: "url('/starfield-bg.jpg') no-repeat center center",
         backgroundSize: 'cover',
       }}
     />
