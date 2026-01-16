@@ -15,13 +15,15 @@ interface Star {
 
 // Layer configuration - optimized for performance
 const LAYERS = [
-  { zMin: 600, zMax: 1000, count: 120, speedMultiplier: 0.4 },  // Far - dim, slow
-  { zMin: 300, zMax: 600,  count: 80,  speedMultiplier: 0.8 },  // Mid
-  { zMin: 80,  zMax: 300,  count: 50,  speedMultiplier: 1.2 },  // Near - bright, fast
+  { zMin: 2000, zMax: 4000, count: 400, speedMultiplier: 0.1 }, // Deep Space - very slow, dense
+  { zMin: 1000, zMax: 2000, count: 300, speedMultiplier: 0.2 }, // Far
+  { zMin: 600, zMax: 1000, count: 200, speedMultiplier: 0.4 },  // Mid-Far
+  { zMin: 300, zMax: 600,  count: 100,  speedMultiplier: 0.8 },  // Mid
+  { zMin: 80,  zMax: 300,  count: 20,   speedMultiplier: 1.2 },  // Near
 ];
-// Total: 250 stars
+// Total: 1020 stars
 
-const MAX_Z = 1000;
+const MAX_Z = 4000;
 const BASE_SPEED = 0.3; // Slower base movement
 
 export default function Starfield() {
@@ -123,12 +125,18 @@ export default function Starfield() {
           continue;
         }
 
-        // Size based on depth (closer = bigger) - smaller stars
+        // Size based on depth (closer = bigger) - adjusted for larger close stars
+        // Use a non-linear scale for size to keep deep stars small but close stars large
         const depthRatio = 1 - star.z / MAX_Z;
-        const size = Math.max(0.3, depthRatio * 2);
+        const size = Math.max(0.05, Math.pow(depthRatio, 2.5) * 3);
 
-        // Brightness based on depth
-        const alpha = Math.min(0.9, depthRatio * 1.2);
+        // Brightness based on depth - fade out deep stars
+        let alpha = Math.min(1, Math.pow(depthRatio, 3) * 1.5);
+
+        // Fade out as they get very close to the camera (soft near-plane clipping)
+        if (star.z < 200) {
+          alpha *= (star.z / 200);
+        }
 
         // Simple trail line (no gradient for performance)
         if (Math.abs(effectiveSpeed) > 0.2 && star.pz < MAX_Z && star.pz > 1) {
