@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist_Mono, Instrument_Serif } from 'next/font/google';
 import localFont from 'next/font/local';
 import "./globals.css"
@@ -20,6 +20,31 @@ const instrumentSerif = Instrument_Serif({
 	weight: '400',
 	style: ['italic', 'normal'],
 });
+
+export const metadata: Metadata = {
+	title: 'Avoverse - Create Your Worlds',
+	description: 'Experience a new dimension of storytelling. Dive into infinite galleries, immersive environments, and cinematic journeys.',
+	keywords: ['Avoverse', 'creative platform', 'storytelling', 'immersive', 'WebGL', 'cinematic'],
+	openGraph: {
+		title: 'Avoverse - Create Your Worlds',
+		description: 'Experience a new dimension of storytelling with immersive galleries and cinematic experiences.',
+		type: 'website',
+		siteName: 'Avoverse',
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Avoverse - Create Your Worlds',
+		description: 'Experience a new dimension of storytelling with immersive galleries and cinematic experiences.',
+	},
+};
+
+export const viewport: Viewport = {
+	width: 'device-width',
+	initialScale: 1,
+	maximumScale: 5,
+	userScalable: true,
+	themeColor: '#000000',
+};
 
 export default function RootLayout({
 	children,

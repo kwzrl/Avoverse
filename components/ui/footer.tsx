@@ -3,20 +3,20 @@ import { Twitter, Instagram, Youtube, Linkedin, Disc, Music2 } from 'lucide-reac
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white pt-24 pb-12 relative overflow-hidden border-t border-white/5">
+    <footer className="bg-black text-white pt-16 md:pt-24 pb-8 md:pb-12 relative overflow-hidden border-t border-white/5">
       {/* Background Graphic / Watermark Vibe */}
-      <div className="absolute -bottom-24 -left-12 opacity-[0.03] pointer-events-none select-none">
+      <div className="absolute -bottom-24 -left-12 opacity-[0.03] pointer-events-none select-none hidden md:block">
          <span className="font-serif italic text-[15rem] leading-none whitespace-nowrap">
             Avoverse
          </span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between gap-12 lg:gap-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between gap-10 md:gap-12 lg:gap-24">
           
           {/* Left Column: Brand & Copyright */}
           <div className="flex flex-col max-w-xs">
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
                {/* Abstract Logo Placeholder matching the vibe */}
                <div className="h-8 w-8 grid grid-cols-2 gap-1 mb-6 opacity-80">
                   <div className="bg-white rounded-sm"></div>
@@ -32,21 +32,21 @@ export function Footer() {
             </div>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-5 text-neutral-500">
-               <Link href="#" className="hover:text-white transition-colors"><Twitter size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors"><Instagram size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors"><Youtube size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors"><Music2 size={18} /></Link> {/* TikTok placeholder */}
-               <Link href="#" className="hover:text-white transition-colors"><Linkedin size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors"><Disc size={18} /></Link> {/* Discord placeholder */}
+            <div className="flex items-center gap-4 md:gap-5 text-neutral-500">
+               <Link href="#" className="hover:text-white transition-colors" aria-label="Twitter"><Twitter size={18} /></Link>
+               <Link href="#" className="hover:text-white transition-colors" aria-label="Instagram"><Instagram size={18} /></Link>
+               <Link href="#" className="hover:text-white transition-colors" aria-label="YouTube"><Youtube size={18} /></Link>
+               <Link href="#" className="hover:text-white transition-colors" aria-label="TikTok"><Music2 size={18} /></Link>
+               <Link href="#" className="hover:text-white transition-colors" aria-label="LinkedIn"><Linkedin size={18} /></Link>
+               <Link href="#" className="hover:text-white transition-colors" aria-label="Discord"><Disc size={18} /></Link>
             </div>
           </div>
 
           {/* Right Columns: Links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-16 lg:gap-24">
-            <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 lg:gap-24">
+            <div className="flex flex-col gap-3 md:gap-4">
               <h3 className="text-white font-medium text-sm">Company</h3>
-              <ul className="flex flex-col gap-3 text-sm text-neutral-500">
+              <ul className="flex flex-col gap-2 md:gap-3 text-sm text-neutral-500">
                 <li><Link href="#" className="hover:text-white transition-colors">Blog</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Community</Link></li>
@@ -54,9 +54,9 @@ export function Footer() {
               </ul>
             </div>
             
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 md:gap-4">
               <h3 className="text-white font-medium text-sm">Product</h3>
-              <ul className="flex flex-col gap-3 text-sm text-neutral-500">
+              <ul className="flex flex-col gap-2 md:gap-3 text-sm text-neutral-500">
                 <li><Link href="#" className="hover:text-white transition-colors">Updates</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Pricing</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Teams</Link></li>
@@ -65,9 +65,9 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 md:gap-4 col-span-2 md:col-span-1">
               <h3 className="text-white font-medium text-sm">Resources</h3>
-              <ul className="flex flex-col gap-3 text-sm text-neutral-500">
+              <ul className="flex flex-col gap-2 md:gap-3 text-sm text-neutral-500">
                 <li><Link href="#" className="hover:text-white transition-colors">Articles</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Docs</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Support</Link></li>
