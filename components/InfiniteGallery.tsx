@@ -54,6 +54,8 @@ interface InfiniteGalleryProps {
 	className?: string;
 	/** Optional style for outer container */
 	style?: React.CSSProperties;
+	/** Whether the gallery should react to user input (scroll/touch). Default: true. Set to false for background usage. */
+	interactive?: boolean;
 }
 
 interface PlaneData {
@@ -249,6 +251,7 @@ function GalleryScene({
 		blurOut: { start: 0.9, end: 1.0 },
 		maxBlur: 3.0,
 	},
+	interactive = true,
 }: Omit<InfiniteGalleryProps, 'className' | 'style'>) {
 	const { scrollVelocity, setScrollVelocity, scrollVelocityRef } = useScroll();
 	const [autoPlay, setAutoPlay] = useState(true);
@@ -455,7 +458,7 @@ function GalleryScene({
 	useEffect(() => {
 		const container = document.getElementById('infinite-gallery-container');
 		const canvas = container?.querySelector('canvas');
-		if (canvas) {
+		if (canvas && interactive) {
 			canvas.addEventListener('wheel', handleWheel, { passive: false });
 			canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
 			canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
@@ -470,7 +473,7 @@ function GalleryScene({
 				document.removeEventListener('keydown', handleKeyDown);
 			};
 		}
-	}, [handleWheel, handleKeyDown, handleTouchStart, handleTouchMove, handleTouchEnd]);
+	}, [handleWheel, handleKeyDown, handleTouchStart, handleTouchMove, handleTouchEnd, interactive]);
 
 	// Auto-play logic
 	useEffect(() => {
@@ -699,6 +702,7 @@ export default function InfiniteGallery({
 		blurOut: { start: 0.4, end: 0.43 },
 		maxBlur: 8.0,
 	},
+	interactive = true,
 }: InfiniteGalleryProps) {
 	const [webglSupported, setWebglSupported] = useState(true);
 
@@ -734,6 +738,7 @@ export default function InfiniteGallery({
 					images={images}
 					fadeSettings={fadeSettings}
 					blurSettings={blurSettings}
+					interactive={interactive}
 				/>
 			</Canvas>
 		</div>

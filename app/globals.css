@@ -8,7 +8,7 @@
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
+	--font-sans: var(--font-nohemi);
 	--font-mono: var(--font-geist-mono);
 	--font-serif: var(--font-instrument);
 }
@@ -23,7 +23,7 @@
 body {
 	background: transparent;
 	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
 html {
