@@ -4,13 +4,6 @@ import { Twitter, Instagram, Youtube, Linkedin, Disc, Music2 } from 'lucide-reac
 export function Footer() {
   return (
     <footer className="bg-black text-white pt-16 md:pt-24 pb-8 md:pb-12 relative overflow-hidden border-t border-white/5">
-      {/* Background Graphic / Watermark Vibe */}
-      <div className="absolute -bottom-24 -left-12 opacity-[0.03] pointer-events-none select-none hidden md:block">
-         <span className="font-serif italic text-[15rem] leading-none whitespace-nowrap">
-            Avoverse
-         </span>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row justify-between gap-10 md:gap-12 lg:gap-24">
           
@@ -33,17 +26,16 @@ export function Footer() {
 
             {/* Social Icons */}
             <div className="flex items-center gap-4 md:gap-5 text-neutral-500">
-               <Link href="#" className="hover:text-white transition-colors" aria-label="Twitter"><Twitter size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors" aria-label="Instagram"><Instagram size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors" aria-label="YouTube"><Youtube size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors" aria-label="TikTok"><Music2 size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors" aria-label="LinkedIn"><Linkedin size={18} /></Link>
-               <Link href="#" className="hover:text-white transition-colors" aria-label="Discord"><Disc size={18} /></Link>
+               <Link href="#" className="hover:text-white transition-colors" aria-label="X">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+               </Link>
             </div>
           </div>
 
           {/* Right Columns: Links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 lg:gap-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 lg:gap-24">
             <div className="flex flex-col gap-3 md:gap-4">
               <h3 className="text-white font-medium text-sm">Company</h3>
               <ul className="flex flex-col gap-2 md:gap-3 text-sm text-neutral-500">
@@ -65,14 +57,21 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="flex flex-col gap-3 md:gap-4 col-span-2 md:col-span-1">
+            <div className="flex flex-col gap-3 md:gap-4">
               <h3 className="text-white font-medium text-sm">Resources</h3>
               <ul className="flex flex-col gap-2 md:gap-3 text-sm text-neutral-500">
                 <li><Link href="#" className="hover:text-white transition-colors">Articles</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Docs</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Support</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Legal</Link></li>
                 <li><Link href="#" className="hover:text-white transition-colors">Brand</Link></li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col gap-3 md:gap-4">
+              <h3 className="text-white font-medium text-sm">Legal</h3>
+              <ul className="flex flex-col gap-2 md:gap-3 text-sm text-neutral-500">
+                <li><Link href="#" className="hover:text-white transition-colors">Imprint</Link></li>
+                <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               </ul>
             </div>
           </div>

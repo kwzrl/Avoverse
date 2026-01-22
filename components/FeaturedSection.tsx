@@ -38,8 +38,8 @@ export function FeaturedSection() {
   return (
     <section className="py-20 md:py-32 bg-black relative z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-white mb-8 md:mb-16 tracking-tight">
-          <span className="italic text-white/50 block md:inline mr-4">Featured</span> 
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-sans font-light text-white mb-8 md:mb-16 tracking-tight">
+          <span className="text-white/50 block md:inline mr-4">Featured</span> 
           Categories
         </h2>
         
@@ -96,7 +96,7 @@ export function FeaturedSection() {
                     !isActive && "md:-rotate-90 md:origin-bottom-left md:translate-x-8 md:mb-12 md:whitespace-nowrap"
                   )}>
                     <h3 className={cn(
-                      "font-serif text-2xl sm:text-3xl md:text-4xl text-white tracking-wide",
+                      "font-sans font-normal text-2xl sm:text-3xl md:text-4xl text-white tracking-wide",
                       isActive ? "scale-100" : "scale-90 opacity-80"
                     )}>
                       {category.title}
